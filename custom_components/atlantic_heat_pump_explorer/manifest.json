@@ -1,0 +1,12 @@
+{
+  "domain": "atlantic_heat_pump_explorer",
+  "name": "Atlantic Heat Pump Explorer",
+  "codeowners": ["@Patras3"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/Patras3/atlantic_heat_pump_explorer",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Patras3/atlantic_heat_pump_explorer/issues",
+  "requirements": ["pyoverkiz==1.19.0"],
+  "version": "0.1.0"
+}

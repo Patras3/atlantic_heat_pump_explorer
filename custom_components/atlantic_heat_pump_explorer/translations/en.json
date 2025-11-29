@@ -1,0 +1,42 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Atlantic Heat Pump Explorer",
+        "description": "Connect to your Atlantic Cozytouch account to explore all available data from your heat pump and water heater.",
+        "data": {
+          "username": "Email",
+          "password": "Password",
+          "hub": "Server"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate",
+        "description": "Please enter your password to re-authenticate.",
+        "data": {
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid email or password. Please check your credentials.",
+      "too_many_requests": "Too many requests. Please wait a few minutes and try again.",
+      "server_maintenance": "The server is currently under maintenance. Please try again later.",
+      "unknown": "An unexpected error occurred. Please check the logs."
+    },
+    "abort": {
+      "already_configured": "This account is already configured.",
+      "reauth_successful": "Re-authentication successful."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "events": {
+        "name": "Events"
+      },
+      "full_dump": {
+        "name": "Full Data Dump"
+      }
+    }
+  }
+}
