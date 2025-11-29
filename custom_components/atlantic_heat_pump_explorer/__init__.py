@@ -104,11 +104,11 @@ async def _log_full_setup_data(hass: HomeAssistant, setup: Any, client: OverkizC
     # Log gateways
     LOGGER.info("\n--- GATEWAYS ---")
     for gateway in setup.gateways:
-        LOGGER.info("Gateway ID: %s", gateway.id)
-        LOGGER.info("  Gateway Type: %s", gateway.type)
-        LOGGER.info("  Is Alive: %s", gateway.alive)
-        LOGGER.info("  Mode: %s", gateway.mode)
-        LOGGER.info("  Protocol Version: %s", gateway.protocol_version)
+        LOGGER.info("Gateway ID: %s", getattr(gateway, 'id', 'N/A'))
+        LOGGER.info("  Gateway Type: %s", getattr(gateway, 'type', 'N/A'))
+        LOGGER.info("  Is Alive: %s", getattr(gateway, 'alive', 'N/A'))
+        LOGGER.info("  Mode: %s", getattr(gateway, 'mode', 'N/A'))
+        LOGGER.info("  Protocol Version: %s", getattr(gateway, 'protocol_version', 'N/A'))
         LOGGER.info("  Firmware Version: %s", getattr(gateway, 'firmware_version', 'N/A'))
 
         # Try to get all gateway attributes
