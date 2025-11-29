@@ -158,10 +158,11 @@ async def _log_full_setup_data(hass: HomeAssistant, setup: Any, client: OverkizC
             if device.definition.commands:
                 LOGGER.info("  --- AVAILABLE COMMANDS ---")
                 for cmd in device.definition.commands:
-                    LOGGER.info("    Command: %s", cmd.command_name)
-                    if cmd.parameters:
-                        for param in cmd.parameters:
-                            LOGGER.info("      Param: %s (type: %s)", param.name, param.type)
+                    LOGGER.info("    Command: %s", getattr(cmd, 'command_name', str(cmd)))
+                    params = getattr(cmd, 'parameters', None)
+                    if params:
+                        for param in params:
+                            LOGGER.info("      Param: %s (type: %s)", getattr(param, 'name', 'N/A'), getattr(param, 'type', 'N/A'))
 
             # Log state definitions
             if device.definition.states:

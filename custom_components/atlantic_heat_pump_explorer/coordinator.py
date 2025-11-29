@@ -114,22 +114,23 @@ class AtlanticDataCoordinator(DataUpdateCoordinator[ExplorerData]):
             if device.definition.commands:
                 for cmd in device.definition.commands:
                     cmd_info = {
-                        "name": cmd.command_name,
+                        "name": getattr(cmd, 'command_name', str(cmd)),
                         "parameters": [],
                     }
-                    if cmd.parameters:
-                        for param in cmd.parameters:
+                    params = getattr(cmd, 'parameters', None)
+                    if params:
+                        for param in params:
                             cmd_info["parameters"].append({
-                                "name": param.name,
-                                "type": param.type,
+                                "name": getattr(param, 'name', 'N/A'),
+                                "type": getattr(param, 'type', 'N/A'),
                             })
                     commands.append(cmd_info)
 
             if device.definition.states:
                 for state_def in device.definition.states:
                     state_definitions.append({
-                        "name": state_def.qualified_name,
-                        "type": state_def.type,
+                        "name": getattr(state_def, 'qualified_name', str(state_def)),
+                        "type": getattr(state_def, 'type', 'N/A'),
                     })
 
         # Get all raw attributes via reflection
